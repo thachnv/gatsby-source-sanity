@@ -2,7 +2,7 @@ import {Node, SourceNodesArgs} from 'gatsby'
 import debug from '../debug'
 import {SanityInputNode} from '../types/gatsby'
 import {SanityDocument} from '../types/sanity'
-import createNodeManifest from './createNodeManifest'
+// import createNodeManifest from './createNodeManifest'
 import {prefixId, unprefixId} from './documentIds'
 import {getTypeName, ProcessingOptions, toGatsbyNode} from './normalize'
 import {TypeMap} from './remoteGraphQLSchema'
@@ -70,7 +70,7 @@ export default function getSyncWithGatsby(props: {
           const node = toGatsbyNode(published, processingOptions)
           gatsbyNodes.set(publishedId, node)
           createNode(node)
-          createNodeManifest(actions, args, node, publishedId)
+          // createNodeManifest(actions, args, node, publishedId)
         } else {
           // the published document has been removed (note - we either have no draft or overlayDrafts is not enabled so merely removing is ok here)
           debug(
@@ -86,7 +86,7 @@ export default function getSyncWithGatsby(props: {
         const node = toGatsbyNode(published, processingOptions)
         gatsbyNodes.set(publishedId, node)
         createNode(node)
-        createNodeManifest(actions, args, node, publishedId)
+        // createNodeManifest(actions, args, node, publishedId)
       }
     }
     if (id === draftId && overlayDrafts) {
@@ -111,7 +111,7 @@ export default function getSyncWithGatsby(props: {
       const node = toGatsbyNode((draft || published)!, processingOptions)
       gatsbyNodes.set(publishedId, node)
       createNode(node)
-      createNodeManifest(actions, args, node, publishedId)
+      // createNodeManifest(actions, args, node, publishedId)
     }
   }
 }
